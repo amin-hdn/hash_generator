@@ -43,14 +43,10 @@ class Root(tk.Tk):
                                     command=self.compare_hash,activebackground='#959595',
                                     width=17 )
         self.copy_button = tk.Button(
-                	                self,text='copier', 
-                	                command=self.copy_the_message,
+                	                self,text='copier', command=self.copy_the_message,
                 	                activebackground='#959595',
                 	                width=17)
-        self.exit_button = tk.Button(
-                                    self,
-                                    text='exit', 
-                                    command=lambda:self.destroy())
+        self.exit_button = tk.Button(self,text='exit', command=lambda:self.destroy())
         # all Combobox
         self.hash = ttk.Combobox(self, textvariable=self.selected_hash, values=('md5','sha1','sha224','sha256','sha384', 'sha512') , state='readonly', justify='center' )
 
