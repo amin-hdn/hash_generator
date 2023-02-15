@@ -81,24 +81,24 @@ class Root(tk.Tk):
         self.exit_button.grid(column=3,row=3, sticky=tk.W, padx=0, pady=1)
         
     
-    def hash_string(self,val):
-        hash_fonction= getattr(hashlib,self.selected_hash.get() )
-        if val == 1 :
+    def hash_string(self,val): 
+        hash_fonction= getattr(hashlib,self.selected_hash.get() )# transformer le string a une fonction de hashage du bib "hashlib"
+        if val == 1 : # appliquer le hash sur le message de l'émétteur
             self.hashed_str_1.set(hash_fonction(self.input_field_1.get().encode()).hexdigest())
             self.result_label_1.config(text=self.hashed_str_1.get())
-        if val == 2 :
+        if val == 2 : # appliquer le hash sur le message de l'émétteur
             self.hashed_str_2.set(hash_fonction(self.input_field_2.get().encode()).hexdigest())
             self.result_label_2.config(text=self.hashed_str_2.get())
 
 
-    def compare_hash(self):
+    def compare_hash(self): # comparer les deux hash
         if self.hashed_str_1.get() == self.hashed_str_2.get() : 
             self.validation.config(text="validé", fg='#32cd32')
         else : self.validation.config(text="non validé",fg='#ff0000')
     
-    def copy_the_message(self):
-        self.input_field_2.delete(0,len(self.input_field_2.get()) )
-        self.input_field_2.insert(0,self.message.get())
+    def copy_the_message(self):# pour copier le message de emetteur vers le recepteur
+        self.input_field_2.delete(0,len(self.input_field_2.get()) ) # supprimmer si il y a déja du contenu
+        self.input_field_2.insert(0,self.message.get()) 
     
 
 
